@@ -179,7 +179,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'LiSu', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 h1 {
   font-size: 22px;
@@ -1437,24 +1437,6 @@ pre .javascript .function {
   text-align: center;
   font-weight: 400;
 }
-.posts-expand .post-title .post-edit-link {
-  color: #bbb;
-  display: inline-block;
-  float: right;
-  border-bottom: none;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
-  transition-delay: 0s;
-  margin-left: -1.2em;
-}
-@media (max-width: 567px) {
-  .posts-expand .post-title .post-edit-link {
-    margin-left: initial;
-  }
-}
-.posts-expand .post-title .post-edit-link:hover {
-  color: #000;
-}
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
@@ -1723,7 +1705,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e726f1;
+  background: #fa50a6;
 }
 .feed-link,
 .chat {
