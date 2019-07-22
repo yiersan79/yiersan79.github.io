@@ -5,10 +5,10 @@
     
     <entry>
       <title>改变</title>
-      <link href="/notes/post/1370fc5c/"/>
-      <url>/notes/post/1370fc5c/</url>
+      <link href="/post/1370fc5c/"/>
+      <url>/post/1370fc5c/</url>
       
-        <content type="html"><![CDATA[<img src="/notes/post/1370fc5c/xiyou_02.jpg"><center>一切都不曾改变</center>]]></content>
+        <content type="html"><![CDATA[<img src="/post/1370fc5c/xiyou_02.jpg"><center>一切都不曾改变</center>]]></content>
       
       
       <categories>
@@ -30,8 +30,8 @@
     
     <entry>
       <title>tty 介绍</title>
-      <link href="/notes/post/c4933109/"/>
-      <url>/notes/post/c4933109/</url>
+      <link href="/post/c4933109/"/>
+      <url>/post/c4933109/</url>
       
         <content type="html"><![CDATA[<p><font color="red">未完待续</font></p><h2 id="tty是什么"><a href="#tty是什么" class="headerlink" title="tty是什么"></a>tty是什么</h2><p>tty这个词来自于Teletypes的缩写，即电传打字机</p><a id="more"></a><h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>输入输出</p><h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2>]]></content>
       
@@ -61,8 +61,8 @@
     
     <entry>
       <title>input 子系统</title>
-      <link href="/notes/post/445b5a1e/"/>
-      <url>/notes/post/445b5a1e/</url>
+      <link href="/post/445b5a1e/"/>
+      <url>/post/445b5a1e/</url>
       
         <content type="html"><![CDATA[<p><font color="red">未完待续</font></p><h2 id="为什么会出现input子系统"><a href="#为什么会出现input子系统" class="headerlink" title="为什么会出现input子系统"></a>为什么会出现input子系统</h2><p>计算机系统可以分为运算、处理、存储、输入、输出这几个部分，而操作系统的功能就是管理硬件，提供抽象接口，所以对于输入部分的管理就是一个必须要考虑的地方</p><a id="more"></a><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><ul><li>input device</li><li>input handler</li><li>input handle</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_dev</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_handler</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_handle</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> __<span class="function">must_check <span class="title">input_register_device</span><span class="params">(struct input_dev *)</span></span>;</span><br><span class="line"><span class="keyword">int</span> __<span class="function">must_check <span class="title">input_register_handler</span><span class="params">(struct input_handler *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">input_register_handle</span><span class="params">(struct input_handle *)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input_event</span><span class="params">(struct input_dev *dev, <span class="keyword">unsigned</span> <span class="keyword">int</span> type, <span class="keyword">unsigned</span> <span class="keyword">int</span> code, <span class="keyword">int</span> value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input_inject_event</span><span class="params">(struct input_handle *handle, <span class="keyword">unsigned</span> <span class="keyword">int</span> type, <span class="keyword">unsigned</span> <span class="keyword">int</span> code, <span class="keyword">int</span> value)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">input_handle_event</span><span class="params">(struct input_dev *dev,</span></span></span><br><span class="line"><span class="function"><span class="params">       <span class="keyword">unsigned</span> <span class="keyword">int</span> type, <span class="keyword">unsigned</span> <span class="keyword">int</span> code, <span class="keyword">int</span> value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">input_pass_values</span><span class="params">(struct input_dev *dev,</span></span></span><br><span class="line"><span class="function"><span class="params">      struct input_value *vals, <span class="keyword">unsigned</span> <span class="keyword">int</span> count)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">input_to_handler</span><span class="params">(struct input_handle *handle,</span></span></span><br><span class="line"><span class="function"><span class="params">struct input_value *vals, <span class="keyword">unsigned</span> <span class="keyword">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure><h2 id="相关模块"><a href="#相关模块" class="headerlink" title="相关模块"></a>相关模块</h2><ul><li>tty</li><li>evdev</li></ul><h2 id="相关应用"><a href="#相关应用" class="headerlink" title="相关应用"></a>相关应用</h2><ul><li>keyboard</li><li>led</li><li>mouse</li><li>hid</li></ul>]]></content>
       
